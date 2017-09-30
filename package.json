@@ -1,6 +1,6 @@
 {
-  "name": "hour-planer",
-  "version": "0.0.0",
+  "name": "Angular-cli-express-universal-starter",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
