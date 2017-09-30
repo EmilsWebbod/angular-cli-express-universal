@@ -1,0 +1,15 @@
+
+<h2>Login</h2>
+
+<form #login_form="ngForm" ngNativeValidate (ngSubmit)="login(login_form)">
+
+  <md-form-field>
+    <input mdInput ngModel name="username" placeholder="Username" required />
+  </md-form-field>
+
+  <md-form-field>
+    <input mdInput ngModel name="password" type="password" placeholder="Password" required />
+  </md-form-field>
+
+  <button md-raised-button color="success">Login</button>
+</form>

@@ -1,0 +1,14 @@
+
+<h2>Register</h2>
+<form #register_form="ngForm" ngNativeValidate (ngSubmit)="register(register_form)">
+
+  <md-form-field>
+    <input mdInput ngModel name="username" placeholder="Username" required>
+  </md-form-field>
+
+  <md-form-field>
+    <input mdInput ngModel name="password" type="password" placeholder="Password" required>
+  </md-form-field>
+
+  <button md-raised-button color="primary">Register</button>
+</form>
