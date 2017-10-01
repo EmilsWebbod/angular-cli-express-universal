@@ -4,7 +4,7 @@ const _ = require('ramda');
 
 import {Files, Folders} from '../files';
 const index = Files.getFileFromDist('index.html').unsafePerformIO();
-import {enableProdMode} from '@angular/core';
+import {enableProdMode, ValueProvider} from '@angular/core';
 
 export = app => {
   if (app.get('env') === 'production') {
@@ -22,7 +22,12 @@ export = app => {
     app.engine('html', (_, options, callback) => {
       const opts = {
         document: index,
-        url:      options.req.url
+        url:      options.req.url,
+        extraProviders: [<ValueProvider>{
+          provide: 'server_url',
+          useValue: `${options.req.protocol}://${options.req.get('host')}`,
+          multi: true
+        }]
       };
       renderModuleFactory(AppServerModuleNgFactory, opts).then(html => {
         callback(null, html);
