@@ -2,7 +2,7 @@
 
 const _ = require('ramda');
 
-import {Files, Folders} from '../files';
+import {Files, Folders} from '../utils/files';
 const index = Files.getFileFromDist('index.html').unsafePerformIO();
 import {enableProdMode} from '@angular/core';
 
