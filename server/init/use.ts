@@ -1,6 +1,6 @@
 
 import {Utils} from '../utils/utils';
-import {Files} from '../utils/files';
+import {Files} from '../files';
 
 const path        = require('path');
 const morgan      = require('morgan');
