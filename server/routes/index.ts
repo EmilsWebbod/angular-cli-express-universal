@@ -1,6 +1,6 @@
 'use strict';
 
-import {Folders} from '../utils/files';
+import {Folders} from '../files';
 const gzipStatic = require('connect-gzip-static');
 const router = require('express').Router();
 
