@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "./",
+    "target": "es6",
+    "sourceMap": true,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "./init/**/*",
+    "./utils/**/*",
+    "./controllers/**/*",
+    "./models/**/*",
+    "./routes/**/*"
+  ],
+  "exclude": [
+  ]
+}

@@ -6,7 +6,7 @@ const passport = require('passport');
 
 export namespace UserCtrl {
 
-  export function setCookie(req) {
+  function setCookie(req) {
     const _extend = 30 * 24 * 60 * 60 * 1000;
     req.session.cookie.expires = new Date(Date.now() + _extend);
     req.session.cookie.maxAge = _extend;

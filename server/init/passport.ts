@@ -1,6 +1,5 @@
 'use strict';
 import {User} from '../models/user.model';
-import {Logger} from '../utils/handler';
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;

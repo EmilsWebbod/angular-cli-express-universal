@@ -4,11 +4,14 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --delete-output-path=false --proxy-config proxy.conf.json",
+    "start": "node ./server/prod",
+    "dev": "ng serve --delete-output-path=false --proxy-config proxy.conf.json",
     "prebuild": "ng build --prod",
     "build": "ng build --prod --app 1",
+    "postbuild": "npm run webpack",
     "server": "ts-node ./server/server",
     "nodemon": "nodemon",
+    "webpack": "webpack",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -26,6 +29,7 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "bootstrap": "^4.0.0-beta",
     "cluster": "^0.7.7",
     "compression": "^1.7.1",
     "connect-flash": "^0.1.1",
@@ -67,8 +71,10 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "nodemon": "^1.12.1",
     "protractor": "~5.1.2",
+    "ts-loader": "^2.3.7",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
-    "typescript": "~2.3.3"
+    "typescript": "~2.3.3",
+    "webpack-node-externals": "^1.6.0"
   }
 }

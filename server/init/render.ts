@@ -7,7 +7,7 @@ const index = Files.getFileFromDist('index.html').unsafePerformIO();
 import {enableProdMode} from '@angular/core';
 
 export = app => {
-  if (app.get('env') === 'development') {
+  if (app.get('env') === 'production') {
     console.log('Initializing SSR');
     const getFirst    = _.compose(_.split('.'), _.head, _.filter(_.startsWith('main')));
     const serverFiles = _.compose( _.map(getFirst), Files.readDir, Files.fromServer);
