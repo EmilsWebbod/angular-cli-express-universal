@@ -88,8 +88,8 @@ const _ = __webpack_require__(1);
 const functors_1 = __webpack_require__(18);
 var Folders;
 (function (Folders) {
-    Folders.dist = path.join(__dirname, '..', '..', 'dist');
-    Folders.server = path.join(__dirname, '..', '..', 'dist-server');
+    Folders.dist = path.join(__dirname, '..', 'dist');
+    Folders.server = path.join(__dirname, '..', 'dist-server');
 })(Folders = exports.Folders || (exports.Folders = {}));
 var Files;
 (function (Files) {
@@ -99,12 +99,12 @@ var Files;
     Files.readDir = function (dir) {
         return new functors_1.IO(() => fs.readdirSync(dir));
     };
-    Files.fromServer = file => path.join(__dirname, '..', '..', 'dist-server', file);
-    Files.fromDist = file => path.join(__dirname, '..', '..', 'dist', file);
+    Files.fromServer = file => path.join(__dirname, '..', 'dist-server', file);
+    Files.fromDist = file => path.join(__dirname, '..', 'dist', file);
     Files.getFileFromDist = _.compose(Files.readFile, Files.fromDist);
 })(Files = exports.Files || (exports.Files = {}));
 
-/* WEBPACK VAR INJECTION */}.call(exports, "server\\utils"))
+/* WEBPACK VAR INJECTION */}.call(exports, "server"))
 
 /***/ }),
 /* 3 */
