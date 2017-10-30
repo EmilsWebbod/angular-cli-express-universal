@@ -14,8 +14,9 @@ export = app => {
     const main        = serverFiles('').unsafePerformIO();
 
     const { renderModuleFactory } = require('@angular/platform-server');
+    const { provideModuleMap } = require('@nguniversal/module-map-ngfactory-loader');
     const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(
-      `../../dist-server/main.${main.length > 3 ? main[1] + '.' : ''}bundle.js`
+      `../../dist/server/main.${main.length > 3 ? main[1] + '.' : ''}bundle.js`
     );
     enableProdMode();
 
@@ -27,13 +28,13 @@ export = app => {
           provide: 'server_url',
           useValue: `${options.req.protocol}://${options.req.get('host')}`,
           multi: true
-        }]
+        }, provideModuleMap(LAZY_MODULE_MAP)]
       };
       renderModuleFactory(AppServerModuleNgFactory, opts).then(html => {
         callback(null, html);
       });
+      console.log('SSR Done');
     });
-    console.log('SSR Done');
   } else {
     console.log('Initializing html engine');
     app.engine('html', (_, options, callback) => {

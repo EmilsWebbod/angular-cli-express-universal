@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {UserService} from '../../../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import {UserService} from '../../../services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private _user: UserService) { }
+  constructor(private _user: UserService, private _router: Router) { }
 
   ngOnInit() {
   }
@@ -18,7 +19,9 @@ export class LoginComponent implements OnInit {
     const username = form.value.username;
     const password = form.value.password;
     this._user.login(username, password).then(x => {
-      console.log(x);
+      if (x) {
+        this._router.navigate(['lazy']);
+      }
     });
   }
 }

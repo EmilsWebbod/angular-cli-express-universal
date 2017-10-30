@@ -1,4 +1,6 @@
+const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -9,20 +11,26 @@ module.exports = {
   },
   target: 'node',
   externals: [nodeExternals({
-    whitelist: [
-      /^"@angular\/material"/
-    ]
+    whitelist: []
   })],
   node: {
     __dirname: true
   },
   output: {
-    path: __dirname + '/server',
-    filename: 'prod.js'
+    path: __dirname + '/dist',
+    filename: 'server.js'
   },
   module: {
     rules: [
       { test: /\.ts$/, loader: 'ts-loader' }
     ]
-  }
+  },
+  plugins: [
+    new webpack.ContextReplacementPlugin(
+      /(.+)?angular(\\|\/)core(.+)?/,
+      path.join(__dirname, 'src'),
+      {}
+    ),
+    new webpack.ContextReplacementPlugin(/(.+)?express(\\|\/)(.+)?/, path.join(__dirname, 'src')),
+  ]
 };

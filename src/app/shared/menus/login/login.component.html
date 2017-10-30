@@ -3,13 +3,13 @@
 
 <form #login_form="ngForm" ngNativeValidate (ngSubmit)="login(login_form)">
 
-  <md-form-field>
-    <input mdInput ngModel name="username" placeholder="Username" required />
-  </md-form-field>
+  <mat-form-field>
+    <input matInput ngModel name="username" placeholder="Username" required />
+  </mat-form-field>
 
-  <md-form-field>
-    <input mdInput ngModel name="password" type="password" placeholder="Password" required />
-  </md-form-field>
+  <mat-form-field>
+    <input matInput ngModel name="password" type="password" placeholder="Password" required />
+  </mat-form-field>
 
-  <button md-raised-button color="success">Login</button>
+  <button mat-raised-button color="success">Login</button>
 </form>

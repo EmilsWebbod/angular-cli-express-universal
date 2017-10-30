@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {UniversalInterceptor} from './services/universal-interceptor.service';
+import {ModuleMapLoaderModule} from '@nguniversal/module-map-ngfactory-loader';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import {UniversalInterceptor} from './services/universal-interceptor.service';
     AppModule,
     ServerModule,
     NoopAnimationsModule,
+    ModuleMapLoaderModule
   ],
   providers: [
     {
